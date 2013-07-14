@@ -22,7 +22,6 @@ class ContactsController extends AppController {
         $contacts = $this->Contact->find('all');
         $this->set(array(
             'contacts' => $contacts,
-            '_serialize' => array('contacts')
         ));
 	}
 

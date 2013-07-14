@@ -1,0 +1,1 @@
+<?php print "{$_REQUEST['callback']}( ".json_encode($contacts)." );"; 
