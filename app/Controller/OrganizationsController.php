@@ -1,11 +1,11 @@
 <?php
 App::uses('AppController', 'Controller');
 /**
- * Contacts Controller
+ * Organizations Controller
  *
- * @property Contact $Contact
+ * @property Organization $Organization
  */
-class ContactsController extends AppController {
+class OrganizationsController extends AppController {
 	
 /**
  * Components
@@ -19,34 +19,34 @@ class ContactsController extends AppController {
  * @return void
  */
 	public function index() {
-        $contacts = $this->Contact->find('all');
+        $organizations = $this->Organization->find('all');
         $this->set(array(
-            'contacts' => $contacts
+            'organizations' => $organizations
         ));
 	}
+	
+/**
+ * list method
+ *
+ * @return void
+ */
+	public function indexList() {
+        $organizations = $this->Organization->find('list');
+        $this->set(array(
+            'organizations' => $organizations
+        ));
+	}	
 
    public function view($id) {
-        $contact = $this->Contact->findById($id);
+        $organization = $this->Organization->findById($id);
         $this->set(array(
-            'contact' => $contact
+            'organization' => $organization
         ));
     }
-	
-    public function add() {
-        if ($this->Contact->save($this->request->data)) {
-            $message = 'Saved';
-        } else {
-            $message = 'Error - '.$this->Contact->validationErrors;
-        }
-        $this->set(array(
-            'message' => $message,
-            '_serialize' => array('message')
-        ));
-    }	
 
     public function edit($id) {
-        $this->Contact->id = $id;
-        if ($this->Contact->save($this->request->data)) {
+        $this->Organization->id = $id;
+        if ($this->Organization->save($this->request->data)) {
             $message = 'Saved';
         } else {
             $message = 'Error';
@@ -58,7 +58,7 @@ class ContactsController extends AppController {
     }
 
     public function delete($id) {
-        if ($this->Contact->delete($id)) {
+        if ($this->Organization->delete($id)) {
             $message = 'Deleted';
         } else {
             $message = 'Error';
