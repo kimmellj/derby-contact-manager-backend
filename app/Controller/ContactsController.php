@@ -33,15 +33,24 @@ class ContactsController extends AppController {
     }
 	
     public function add() {
-        if ($this->Contact->save($this->request->data)) {
-            $message = 'Saved';
-        } else {
-            $message = 'Error - '.$this->Contact->validationErrors;
-        }
-        $this->set(array(
-            'message' => $message,
-            '_serialize' => array('message')
-        ));
+	  $data = $this->request->input('json_decode');
+	  
+	  $postData = array('Contact' => array());
+	  
+	  foreach ($data->contact as $key => $value) {
+	       $postData['Contact'][$key] = $value;
+	  }
+	  
+	  if ($this->Contact->save($postData)) {
+	      $message = 'Saved';
+	      $success = true;
+	  } else {
+	      $message = 'Error - '.join("<br />", $this->Contact->validationErrors);
+	      $success = false;
+	  }
+	  $this->set(array(
+	      'response' => array('message' => $message, 'success' => $success)
+	  ));
     }	
 
     public function edit($id) {
@@ -58,7 +67,7 @@ class ContactsController extends AppController {
     }
 
     public function delete($id) {
-        if ($this->Contact->delete($id)) {
+        if ($this->Contact->delete($id, false)) {
             $message = 'Deleted';
         } else {
             $message = 'Error';
