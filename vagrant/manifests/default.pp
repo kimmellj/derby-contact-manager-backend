@@ -42,6 +42,9 @@ apache::vhost { 'derbycontactmanager.dev':
   env_variables => [
 ],
   priority      => '1',
+  directory => '/var/www/',
+  directory_options => 'Indexes FollowSymLinks MultiViews',
+  directory_allow_override => 'All'
 }
 
 class { 'php':
