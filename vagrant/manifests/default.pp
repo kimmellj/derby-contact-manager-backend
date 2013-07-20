@@ -31,7 +31,7 @@ apache::dotconf { 'custom':
   content => 'EnableSendfile Off',
 }
 
-apache::module { 'rewrite': }
+apache::module { ['rewrite', 'headers']: }
 
 apache::vhost { 'derbycontactmanager.dev':
   server_name   => 'derbycontactmanager.dev',
