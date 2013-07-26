@@ -6,6 +6,6 @@
 
 <IfModule mod_headers.c>
    Header set Access-Control-Allow-Origin "*"
-   Header set Access-Control-Allow-Methods "POST, DELETE, GET, OPTIONS"
+   Header set Access-Control-Allow-Methods "POST, DELETE, GET, PUT, OPTIONS"
    Header append Access-Control-Allow-Headers "Content-Type"
 </IfModule>

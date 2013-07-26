@@ -19,7 +19,7 @@ class OrganizationsController extends AppController {
  * @return void
  */
 	public function index() {
-        $organizations = $this->Organization->find('all');
+        $organizations = $this->Organization->find('all', array('contain'=>false));
         $this->set(array(
             'organizations' => $organizations
         ));
@@ -31,30 +31,65 @@ class OrganizationsController extends AppController {
  * @return void
  */
 	public function indexList() {
-        $organizations = $this->Organization->find('list');
+        $organizations = $this->Organization->find('all', array('contain' => false, 'fields' => array('id', 'name')));
         $this->set(array(
             'organizations' => $organizations
         ));
 	}	
 
    public function view($id) {
+		$this->Organization->contain();
         $organization = $this->Organization->findById($id);
         $this->set(array(
             'organization' => $organization
         ));
     }
+	
+    public function add() {
+	  $data = $this->request->input('json_decode');
+	  
+	  $postData = array('Organization' => array());
+	  
+	  foreach ($data->organization as $key => $value) {
+	       $postData['Organization'][$key] = $value;
+	  }
+	  
+	  if ($this->Organization->save($postData)) {
+	      $message = 'Saved';
+	      $success = true;
+	  } else {
+	      $message = 'Error - '.join("<br />", $this->Organization->validationErrors);
+	      $success = false;
+	  }
+	  $this->set(array(
+	      'response' => array('message' => $message, 'success' => $success)
+	  ));
+    }	
 
-    public function edit($id) {
-        $this->Organization->id = $id;
-        if ($this->Organization->save($this->request->data)) {
-            $message = 'Saved';
-        } else {
-            $message = 'Error';
-        }
-        $this->set(array(
-            'message' => $message,
-            '_serialize' => array('message')
-        ));
+    public function edit() {
+	  $data = $this->request->input('json_decode');
+	  
+	  $postData = array('Organization' => array());
+	  
+	  foreach ($data->organization as $key => $value) {
+	       $postData['Organization'][$key] = $value;
+	  }
+	  
+	  if (!$this->Organization->validates()) {
+	      $message = 'Error - Validation Failed';
+	      $success = false;		
+	  } else {
+		if ($this->Organization->save($postData)) {
+			$message = 'Saved';
+			$success = true;
+		} else {
+			$message = 'Error Saving';
+			$success = false;
+		}
+	  }
+	  $this->set(array(
+	      'response' => array('message' => $message, 'success' => $success)
+	  ));
     }
 
     public function delete($id) {

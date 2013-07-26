@@ -31,7 +31,7 @@ class RolesController extends AppController {
  * @return void
  */
 	public function indexList() {
-        $roles = $this->Role->find('list');
+        $roles = $this->Role->find('all', array('contain' => false, 'fields' => array('id', 'name')));
         $this->set(array(
             'roles' => $roles
         ));

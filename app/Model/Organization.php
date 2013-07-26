@@ -13,6 +13,10 @@ class Organization extends AppModel {
  * @var string
  */
 	public $displayField = 'name';
+    
+    public $actsAs = array('Containable');
+    
+    public $order = array('name');
 
 /**
  * Validation rules

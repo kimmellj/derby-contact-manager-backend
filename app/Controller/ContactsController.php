@@ -41,29 +41,47 @@ class ContactsController extends AppController {
 	       $postData['Contact'][$key] = $value;
 	  }
 	  
-	  if ($this->Contact->save($postData)) {
-	      $message = 'Saved';
-	      $success = true;
+	  if (!$this->Contact->validates()) {
+	      $message = 'Error - Validation Failed';
+	      $success = false;		
 	  } else {
-	      $message = 'Error - '.join("<br />", $this->Contact->validationErrors);
-	      $success = false;
+		if ($this->Contact->save($postData)) {
+			$message = 'Saved';
+			$success = true;
+		} else {
+			$message = 'Error Saving';
+			$success = false;
+		}
 	  }
 	  $this->set(array(
 	      'response' => array('message' => $message, 'success' => $success)
 	  ));
     }	
 
-    public function edit($id) {
-        $this->Contact->id = $id;
-        if ($this->Contact->save($this->request->data)) {
-            $message = 'Saved';
-        } else {
-            $message = 'Error';
-        }
-        $this->set(array(
-            'message' => $message,
-            '_serialize' => array('message')
-        ));
+    public function edit() {
+	  $data = $this->request->input('json_decode');
+	  
+	  $postData = array('Contact' => array());
+	  
+	  foreach ($data->contact as $key => $value) {
+	       $postData['Contact'][$key] = $value;
+	  }
+	  
+	  if (!$this->Contact->validates()) {
+	      $message = 'Error - Validation Failed';
+	      $success = false;		
+	  } else {
+		if ($this->Contact->save($postData)) {
+			$message = 'Saved';
+			$success = true;
+		} else {
+			$message = 'Error Saving';
+			$success = false;
+		}
+	  }
+	  $this->set(array(
+	      'response' => array('message' => $message, 'success' => $success)
+	  ));
     }
 
     public function delete($id) {
