@@ -2,39 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3620633-fc40-4c21-aa4a-45359518de0e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/View/Contacts/json/user_exists.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/ContactsController.php" afterPath="$PROJECT_DIR$/app/Controller/ContactsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Config/core.php" afterPath="$PROJECT_DIR$/app/Config/core.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/.htaccess" afterPath="$PROJECT_DIR$/app/webroot/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/cake.bat" afterPath="$PROJECT_DIR$/app/Console/cake.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Cake/Console/cake.bat" afterPath="$PROJECT_DIR$/lib/Cake/Console/cake.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Cake/Console/Templates/skel/Console/cake.bat" afterPath="$PROJECT_DIR$/lib/Cake/Console/Templates/skel/Console/cake.bat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vagrant/.vagrant/machines/default/virtualbox/id" afterPath="$PROJECT_DIR$/vagrant/.vagrant/machines/default/virtualbox/id" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Config/Schema/schema.php" afterPath="$PROJECT_DIR$/app/Config/Schema/schema.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="derby-contact-manager-backend.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377100652190" ignored="false" />
+    <file path="/Dummy.txt" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377310242517" ignored="false" />
     <file path="/.htaccess" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377099471195" ignored="false" />
-    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/bower.json" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377100960283" ignored="false" />
-    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/index.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377116487113" ignored="false" />
+    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/bower.json" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377313065892" ignored="false" />
+    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/index.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377313096303" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/bower_components/angular/angular.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377101125637" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/views/contacts/add.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377113160774" ignored="false" />
     <file path="/add.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377113143079" ignored="false" />
     <file path="/a.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377101744848" ignored="false" />
     <file path="/dummy.xml" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377101904771" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/channel.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377103108929" ignored="false" />
-    <file path="/index.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377115487707" ignored="false" />
-    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/scripts/app.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377112595924" ignored="false" />
-    <file path="/app.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377106177159" ignored="false" />
-    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/scripts/controllers/contacts.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377116825406" ignored="false" />
-    <file path="/contacts.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377116699992" ignored="false" />
-    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/scripts/controllers/login.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377116855129" ignored="false" />
+    <file path="/index.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377313096007" ignored="false" />
+    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/scripts/app.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377313791414" ignored="false" />
+    <file path="/app.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377313791414" ignored="false" />
+    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/scripts/controllers/contacts.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377314098993" ignored="false" />
+    <file path="/contacts.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377314098993" ignored="false" />
+    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/scripts/controllers/login.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377311524807" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/views/login.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377106875655" ignored="false" />
     <file path="/login.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377106875655" ignored="false" />
-    <file path="/login.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377113810996" ignored="false" />
+    <file path="/login.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377314575631" ignored="false" />
     <file path="/ContactsController.php" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377111931159" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/views/contacts/index.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377115498008" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/.tmp/styles/main.css" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377114802306" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/views/contacts/view.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377115644029" ignored="false" />
     <file path="/view.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377115641654" ignored="false" />
+    <file path="/a.dummy" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377310747300" ignored="false" />
+    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/scripts/controllers/organizations.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377310767074" ignored="false" />
+    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/scripts/services/login.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377314574911" ignored="false" />
+    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/index.php" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377362520437" ignored="false" />
+    <file path="/index.php" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377362494421" ignored="false" />
+    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/composer.json" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377315561528" ignored="false" />
+    <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/logged_in.php" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377362135994" ignored="false" />
+    <file path="/logged_in.php" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377362134243" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +58,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -85,7 +95,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -95,64 +104,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="database.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Config/database.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="31" selection-start="2409" selection-end="2409" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="core.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Config/core.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="241" column="4" selection-start="9197" selection-end="9197" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".htaccess" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.htaccess">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="schema.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Config/Schema/schema.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="70" selection-start="362" selection-end="362" vertical-scroll-proportion="0.1773399">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContactsController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ContactsController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/ContactsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="53" selection-start="607" selection-end="607" vertical-scroll-proportion="-20.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_exists.ctp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/Contacts/json/user_exists.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrganizationsController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Controller/OrganizationsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="33" column="53" selection-start="607" selection-end="607" vertical-scroll-proportion="0.017709563">
               <folding />
             </state>
           </provider>
@@ -177,18 +132,20 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/app/Config/core.php" />
-        <option value="$PROJECT_DIR$/app/Config/database.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/app/Controller/ContactsController.php" />
         <option value="$PROJECT_DIR$/app/Config/Schema/schema.php" />
+        <option value="$PROJECT_DIR$/app/Config/database.php" />
+        <option value="$PROJECT_DIR$/app/webroot/.htaccess" />
       </list>
     </option>
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
-    <option name="y" value="-48" />
-    <option name="width" value="1545" />
-    <option name="height" value="1200" />
+    <option name="x" value="64" />
+    <option name="y" value="-4" />
+    <option name="width" value="1617" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -216,8 +173,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -246,101 +201,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vagrant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vagrant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vagrant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Contacts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -362,48 +223,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="derby-contact-manager-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Schema" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -411,15 +234,15 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../derby-contact-manager-frontend" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/View/Contacts/json" />
       <recent name="$PROJECT_DIR$/app/Config" />
+      <recent name="$PROJECT_DIR$/app/View/Contacts/json" />
     </key>
   </component>
   <component name="RunManager">
@@ -429,12 +252,44 @@
       <option name="PROGRAM_PARAMETERS" />
       <method />
     </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -465,19 +320,28 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
     <list size="0" />
-    <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-    </configuration>
-    <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-    </configuration>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
@@ -493,12 +357,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="-48" width="1545" height="1200" extended-state="6" />
+    <frame x="64" y="-4" width="1617" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -509,11 +374,10 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31220815" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25367412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -580,9 +444,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Config/database.php">
+    <entry file="file://$PROJECT_DIR$/app/View/Contacts/json/user_exists.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="31" selection-start="2409" selection-end="2409" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/OrganizationsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -609,30 +480,58 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vagrant/manifests/default.pp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="49" selection-start="2624" selection-end="2632" vertical-scroll-proportion="-24.925926" />
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Config/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="31" selection-start="2409" selection-end="2409" vertical-scroll-proportion="0.0">
+        <state line="128" column="49" selection-start="2624" selection-end="2632" vertical-scroll-proportion="-24.925926" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vagrant/modules/apache/templates/virtualhost/virtualhost.conf.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Config/core.php">
+    <entry file="file://$PROJECT_DIR$/vagrant/modules/apache/templates/virtualhost/vhost.conf.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="241" column="4" selection-start="9197" selection-end="9197" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="74" selection-start="179" selection-end="179" vertical-scroll-proportion="0.10638298">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
+        <state line="4" column="0" selection-start="104" selection-end="324" vertical-scroll-proportion="0.06888634">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="37" selection-start="2429" selection-end="2443" vertical-scroll-proportion="0.60431653">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Config/core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="242" column="53" selection-start="9231" selection-end="9231" vertical-scroll-proportion="0.035419125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Config/Schema/schema.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="70" selection-start="362" selection-end="362" vertical-scroll-proportion="0.017709563">
           <folding />
         </state>
       </provider>
@@ -644,13 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/ContactsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="53" selection-start="607" selection-end="607" vertical-scroll-proportion="-20.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/OrganizationsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -658,9 +550,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Config/Schema/schema.php">
+    <entry file="file://$PROJECT_DIR$/app/Controller/ContactsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="70" selection-start="362" selection-end="362" vertical-scroll-proportion="0.1773399">
+        <state line="33" column="53" selection-start="607" selection-end="607" vertical-scroll-proportion="0.017709563">
           <folding />
         </state>
       </provider>
