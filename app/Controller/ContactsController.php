@@ -31,6 +31,15 @@ class ContactsController extends AppController {
             'contact' => $contact
         ));
     }
+
+    public function user_exists($id) {
+        $contact = $this->Contact->find('first', array(
+            'condition' => array('facebook_id' => $id)
+        ));
+        $this->set(array(
+            'contact' => $contact
+        ));
+    }
 	
     public function add() {
 	  $data = $this->request->input('json_decode');
