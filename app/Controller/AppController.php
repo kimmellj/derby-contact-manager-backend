@@ -32,4 +32,22 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+    var $components = array('Session');
+
+    public function beforeFilter()
+    {
+        Configure::load('facebook', 'default');
+        App::import('Vendor', 'facebook-php-sdk/src/facebook');
+        $this->Facebook = new Facebook(array(
+            'appId'     =>  Configure::read('Facebook.appId'),
+            'secret'    =>  Configure::read('Facebook.secret')
+        ));
+
+        $fbAccessToken = $this->Session->read('FBAccessToken');
+
+        if ($fbAccessToken) {
+            $this->Facebook->setAccessToken($this->Session->read('FBAccessToken'));
+        }
+    }
 }

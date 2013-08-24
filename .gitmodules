@@ -1,0 +1,6 @@
+[submodule "app/Vendor/facebook-php-sdk"]
+	path = app/Vendor/facebook-php-sdk
+	url = https://github.com/facebook/facebook-php-sdk.git
+[submodule "app/Vendor/guzzle"]
+	path = app/Vendor/guzzle
+	url = https://github.com/guzzle/guzzle.git

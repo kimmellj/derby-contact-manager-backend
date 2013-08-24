@@ -1,0 +1,5 @@
+<?php
+$config['Facebook'] = array(
+    'appId' => '',
+    'secret' => ''
+);
