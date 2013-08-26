@@ -17,12 +17,17 @@ class ContactsController extends AppController {
     {
         $params = array(
             'scope' => 'read_stream, friends_likes',
-            'redirect_uri' => 'http://derbycontact.com/contacts/login_complete.json'
+            'redirect_uri' => 'http://derbycontact.com/contacts/login_complete'
         );
 
         $this->set(array(
             'loginUrl' => $this->Facebook->getLoginUrl($params)
         ));
+    }
+
+    public function login()
+    {
+        $this->get_login_url();
     }
 
     public function login_complete()
@@ -36,7 +41,7 @@ class ContactsController extends AppController {
 
         $results = $HttpSocket->get('https://graph.facebook.com/oauth/access_token', array(
             'client_id' => Configure::read('Facebook.appId'),
-            'redirect_uri' => 'http://derbycontact.com/contacts/login_complete.json',
+            'redirect_uri' => 'http://derbycontact.com/contacts/login_complete',
             'client_secret' => Configure::read('Facebook.secret'),
             'code' => $query['code']
         ));
@@ -52,10 +57,9 @@ class ContactsController extends AppController {
 
             $this->Session->write('FBAccessToken', $organizedResponse['access_token']);
 
-            /**
-             * @todo redirect somewhere
-             */
-            exit;
+            $this->redirect(array('action' => 'index'));
+        } else {
+            debug($results);
         }
 
         /**
@@ -68,10 +72,15 @@ class ContactsController extends AppController {
 
     public function logged_in_user()
     {
-        $uid = $this->Facebook->getUser();
-        $userProfile = $this->Facebook->api('/me','GET');
+        if (!$this->loggedIn) {
+            $userProfile = array('success' => false);
+        } else {
+            $uid = $this->Facebook->getUser();
+            $userProfile = $this->Facebook->api('/me','GET');
 
-        $userProfile['local_user'] = $this->Contact->find('count', array('conditions' =>  array('facebook_id' => $uid))) > 0 ? true : false;
+            $userProfile['local_user'] = $this->Contact->find('count', array('conditions' =>  array('facebook_id' => $uid))) > 0 ? true : false;
+            $userProfile['success'] = true;
+        }
 
         $this->set(array(
             'userProfile' => $userProfile

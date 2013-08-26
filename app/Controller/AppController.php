@@ -34,6 +34,7 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 
     var $components = array('Session');
+    public $loggedIn = false;
 
     public function beforeFilter()
     {
@@ -47,7 +48,10 @@ class AppController extends Controller {
         $fbAccessToken = $this->Session->read('FBAccessToken');
 
         if ($fbAccessToken) {
+            $this->loggedIn = true;
             $this->Facebook->setAccessToken($this->Session->read('FBAccessToken'));
+        } else if ($this->params->action != 'login' && $this->params->action != 'login_complete') {
+            $this->redirect(array('controller' => 'contacts', 'action' => 'login'));
         }
     }
 }
