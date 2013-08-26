@@ -5,32 +5,31 @@ App::uses('AppController', 'Controller');
  *
  * @property Contact $Contact
  */
-class ContactsController extends AppController {
-	
-/**
- * Components
- * @access public
- */
-	public $components = array('RequestHandler');
+class ContactsController extends AppController
+{
 
+    /**
+     * Components
+     * @access public
+     */
+    public $components = array('RequestHandler');
+
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+
+        $this->Auth->allow(array('login', 'add'));
+    }
+
+    /**
+     * @todo implment
+     */
     public function get_login_url()
     {
-        $params = array(
-            'scope' => 'read_stream, friends_likes',
-            'redirect_uri' => 'http://derbycontact.com/contacts/login_complete'
-        );
 
-        $this->set(array(
-            'loginUrl' => $this->Facebook->getLoginUrl($params)
-        ));
     }
 
     public function login()
-    {
-        $this->get_login_url();
-    }
-
-    public function login_complete()
     {
 
         $query = $this->request->query;
@@ -41,7 +40,7 @@ class ContactsController extends AppController {
 
         $results = $HttpSocket->get('https://graph.facebook.com/oauth/access_token', array(
             'client_id' => Configure::read('Facebook.appId'),
-            'redirect_uri' => 'http://derbycontact.com/contacts/login_complete',
+            'redirect_uri' => Router::url(array('controller' => 'contacts', 'action' => 'login'), true),
             'client_secret' => Configure::read('Facebook.secret'),
             'code' => $query['code']
         ));
@@ -57,7 +56,7 @@ class ContactsController extends AppController {
 
             $this->Session->write('FBAccessToken', $organizedResponse['access_token']);
 
-            $this->redirect(array('action' => 'index'));
+            $this->redirect(array('action' => 'add'));
         } else {
             debug($results);
         }
@@ -76,9 +75,9 @@ class ContactsController extends AppController {
             $userProfile = array('success' => false);
         } else {
             $uid = $this->Facebook->getUser();
-            $userProfile = $this->Facebook->api('/me','GET');
+            $userProfile = $this->Facebook->api('/me', 'GET');
 
-            $userProfile['local_user'] = $this->Contact->find('count', array('conditions' =>  array('facebook_id' => $uid))) > 0 ? true : false;
+            $userProfile['local_user'] = $this->Contact->find('count', array('conditions' => array('facebook_id' => $uid))) > 0 ? true : false;
             $userProfile['success'] = true;
         }
 
@@ -87,21 +86,24 @@ class ContactsController extends AppController {
         ));
     }
 
-	public function index() {
+    public function index()
+    {
         $contacts = $this->Contact->find('all');
         $this->set(array(
             'contacts' => $contacts
         ));
-	}
+    }
 
-   public function view($id) {
+    public function view($id)
+    {
         $contact = $this->Contact->findById($id);
         $this->set(array(
             'contact' => $contact
         ));
     }
 
-    public function user_exists($id) {
+    public function user_exists($id)
+    {
         $contact = $this->Contact->find('first', array(
             'condition' => array('facebook_id' => $id)
         ));
@@ -109,60 +111,94 @@ class ContactsController extends AppController {
             'contact' => $contact
         ));
     }
-	
-    public function add() {
-	  $data = $this->request->input('json_decode');
-	  
-	  $postData = array('Contact' => array());
-	  
-	  foreach ($data->contact as $key => $value) {
-	       $postData['Contact'][$key] = $value;
-	  }
-	  
-	  if (!$this->Contact->validates()) {
-	      $message = 'Error - Validation Failed';
-	      $success = false;		
-	  } else {
-		if ($this->Contact->save($postData)) {
-			$message = 'Saved';
-			$success = true;
-		} else {
-			$message = 'Error Saving';
-			$success = false;
-		}
-	  }
-	  $this->set(array(
-	      'response' => array('message' => $message, 'success' => $success)
-	  ));
-    }	
 
-    public function edit() {
-	  $data = $this->request->input('json_decode');
-	  
-	  $postData = array('Contact' => array());
-	  
-	  foreach ($data->contact as $key => $value) {
-	       $postData['Contact'][$key] = $value;
-	  }
-	  
-	  if (!$this->Contact->validates()) {
-	      $message = 'Error - Validation Failed';
-	      $success = false;		
-	  } else {
-		if ($this->Contact->save($postData)) {
-			$message = 'Saved';
-			$success = true;
-		} else {
-			$message = 'Error Saving';
-			$success = false;
-		}
-	  }
-	  $this->set(array(
-	      'response' => array('message' => $message, 'success' => $success)
-	  ));
+    public function add()
+    {
+        $data = $this->request->input('json_decode');
+
+        if ($data) {
+            $postData = array('Contact' => array());
+
+            foreach ($data->contact as $key => $value) {
+                $postData['Contact'][$key] = $value;
+            }
+
+            if (!$this->Contact->validates()) {
+                $message = 'Error - Validation Failed';
+                $success = false;
+            } else {
+                if ($this->Contact->save($postData)) {
+                    $message = 'Saved';
+                    $success = true;
+                } else {
+                    $message = 'Error Saving';
+                    $success = false;
+                }
+            }
+            $this->set(array(
+                'response' => array('message' => $message, 'success' => $success)
+            ));
+        }
+
+        try {
+            $this->Facebook->setAccessToken($this->Session->read('FBAccessToken'));
+            $fbUser = $this->Facebook->api('/me');
+        } catch (Exception $e) {
+            $this->redirect('/');
+        }
+
+        if (!empty($this->request->data)) {
+            $this->request->data['Contact']['password'] = AuthComponent::password(uniqid(md5(mt_rand())));
+            $this->Contact->save($this->request->data);
+
+            $this->Auth->login($this->request->data['Contact']);
+
+            debug($this->Auth->loggedIn());
+
+            $this->redirect(array('action' => 'index'));
+        }
+
+        if (empty($this->request->data)) {
+            $this->request->data = array(
+                'Contact' => array(
+                    'name' => $fbUser['name'],
+                    'facebook_link' => $fbUser['link'],
+                    'facebook_id' => $fbUser['id'],
+                    'username' => $fbUser['username']
+                )
+            );
+        }
     }
 
-    public function delete($id) {
+    public function edit()
+    {
+        $data = $this->request->input('json_decode');
+
+        $postData = array('Contact' => array());
+
+        foreach ($data->contact as $key => $value) {
+            $postData['Contact'][$key] = $value;
+        }
+
+        if (!$this->Contact->validates()) {
+            $message = 'Error - Validation Failed';
+            $success = false;
+        } else {
+            if ($this->Contact->save($postData)) {
+                $message = 'Saved';
+                $success = true;
+            } else {
+                $message = 'Error Saving';
+                $success = false;
+            }
+        }
+        $this->set(array(
+            'response' => array('message' => $message, 'success' => $success)
+        ));
+    }
+
+    public function delete($id)
+    {
         if ($this->Contact->delete($id, false)) {
             $message = 'Deleted';
         } else {

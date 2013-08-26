@@ -33,7 +33,7 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-    var $components = array('Session');
+    var $components = array('Session', 'Auth');
     public $loggedIn = false;
 
     public function beforeFilter()
@@ -44,14 +44,10 @@ class AppController extends Controller {
             'appId'     =>  Configure::read('Facebook.appId'),
             'secret'    =>  Configure::read('Facebook.secret')
         ));
+    }
 
-        $fbAccessToken = $this->Session->read('FBAccessToken');
-
-        if ($fbAccessToken) {
-            $this->loggedIn = true;
-            $this->Facebook->setAccessToken($this->Session->read('FBAccessToken'));
-        } else if ($this->params->action != 'login' && $this->params->action != 'login_complete') {
-            $this->redirect(array('controller' => 'contacts', 'action' => 'login'));
-        }
+    public function beforeRender() {
+        $this->set('fb_login_url', $this->Facebook->getLoginUrl(array('redirect_uri' => Router::url(array('controller' => 'contacts', 'action' => 'login'), true))));
+        $this->set('user', $this->Auth->user());
     }
 }
