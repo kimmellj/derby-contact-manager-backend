@@ -29,44 +29,76 @@ class ContactsController extends AppController
 
     }
 
+    public function logout()
+    {
+        $params = array( 'next' => Router::url('/', true) );
+        $fbLogout = $this->Facebook->getLogoutUrl($params);
+
+        $this->Auth->logout();
+
+        $this->redirect($fbLogout);
+    }
+
     public function login()
     {
+        if (!empty($this->request->query['code'])) {
+            $query = $this->request->query;
 
-        $query = $this->request->query;
+            App::uses('HttpSocket', 'Network/Http');
 
-        App::uses('HttpSocket', 'Network/Http');
+            $HttpSocket = new HttpSocket();
 
-        $HttpSocket = new HttpSocket();
+            $results = $HttpSocket->get('https://graph.facebook.com/oauth/access_token', array(
+                'client_id' => Configure::read('Facebook.appId'),
+                'redirect_uri' => Router::url(array('controller' => 'contacts', 'action' => 'login'), true),
+                'client_secret' => Configure::read('Facebook.secret'),
+                'code' => $query['code']
+            ));
 
-        $results = $HttpSocket->get('https://graph.facebook.com/oauth/access_token', array(
-            'client_id' => Configure::read('Facebook.appId'),
-            'redirect_uri' => Router::url(array('controller' => 'contacts', 'action' => 'login'), true),
-            'client_secret' => Configure::read('Facebook.secret'),
-            'code' => $query['code']
-        ));
+            if ($results->code == '200') {
+                $responseParts = explode("&", $results->body);
+                $organizedResponse = array();
 
-        if ($results->code == '200') {
-            $responseParts = explode("&", $results->body);
-            $organizedResponse = array();
+                foreach ($responseParts as &$part) {
+                    $part = explode("=", $part);
+                    $organizedResponse[$part[0]] = $part[1];
+                }
 
-            foreach ($responseParts as &$part) {
-                $part = explode("=", $part);
-                $organizedResponse[$part[0]] = $part[1];
+                $this->Session->write('FBAccessToken', $organizedResponse['access_token']);
+
+                //Are they a user yet?
+                try {
+                    $this->Facebook->setAccessToken($this->Session->read('FBAccessToken'));
+                    $fbUser = $this->Facebook->api('/me');
+                } catch (Exception $e) {
+                    $this->redirect('/');
+                }
+
+                $contact = $this->Contact->find('first', array(
+                    'conditions' => array(
+                        'Contact.facebook_id' => $fbUser['id']
+                    )
+                ));
+
+                if ($contact) {
+                    $this->Auth->login($contact['Contact']);
+                    $this->redirect(array('action' => 'index'));
+                }
+
+                exit;
+
+                $this->redirect(array('action' => 'add'));
+            } else {
+                $this->redirect('/');
             }
 
-            $this->Session->write('FBAccessToken', $organizedResponse['access_token']);
+            /**
+             * @todo Check For Error
+             */
 
-            $this->redirect(array('action' => 'add'));
-        } else {
-            debug($results);
+
+            exit;
         }
-
-        /**
-         * @todo Check For Error
-         */
-
-
-        exit;
     }
 
     public function logged_in_user()
@@ -153,8 +185,6 @@ class ContactsController extends AppController
 
             $this->Auth->login($this->request->data['Contact']);
 
-            debug($this->Auth->loggedIn());
-
             $this->redirect(array('action' => 'index'));
         }
 
@@ -174,27 +204,40 @@ class ContactsController extends AppController
     {
         $data = $this->request->input('json_decode');
 
-        $postData = array('Contact' => array());
+        if ($data) {
+            $postData = array('Contact' => array());
 
-        foreach ($data->contact as $key => $value) {
-            $postData['Contact'][$key] = $value;
-        }
-
-        if (!$this->Contact->validates()) {
-            $message = 'Error - Validation Failed';
-            $success = false;
-        } else {
-            if ($this->Contact->save($postData)) {
-                $message = 'Saved';
-                $success = true;
-            } else {
-                $message = 'Error Saving';
-                $success = false;
+            foreach ($data->contact as $key => $value) {
+                $postData['Contact'][$key] = $value;
             }
+
+            if (!$this->Contact->validates()) {
+                $message = 'Error - Validation Failed';
+                $success = false;
+            } else {
+                if ($this->Contact->save($postData)) {
+                    $message = 'Saved';
+                    $success = true;
+                } else {
+                    $message = 'Error Saving';
+                    $success = false;
+                }
+            }
+            $this->set(array(
+                'response' => array('message' => $message, 'success' => $success)
+            ));
         }
-        $this->set(array(
-            'response' => array('message' => $message, 'success' => $success)
-        ));
+
+        if (!empty($this->request->data)) {
+            $this->request->data['Contact']['id'] = $this->Auth->user('id');
+            $this->Contact->save($this->request->data);
+
+            $this->redirect(array('action' => 'index'));
+        }
+
+        if (empty($this->request->data)) {
+            $this->request->data = $this->Contact->find('first', array('conditions' => array('Contact.id' => $this->Auth->user('id'))));
+        }
     }
 
     public function delete($id)

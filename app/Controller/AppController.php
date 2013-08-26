@@ -33,7 +33,15 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-    var $components = array('Session', 'Auth');
+    var $components = array(
+        'Session',
+        'Auth' => array(
+            'loginAction' => array(
+                'controller' => 'contacts',
+                'action' => 'login'
+            )
+        )
+    );
     public $loggedIn = false;
 
     public function beforeFilter()
@@ -44,6 +52,10 @@ class AppController extends Controller {
             'appId'     =>  Configure::read('Facebook.appId'),
             'secret'    =>  Configure::read('Facebook.secret')
         ));
+
+        $this->Auth->authenticate = array(
+            AuthComponent::ALL => array('userModel' => 'Contact')
+        );
     }
 
     public function beforeRender() {
