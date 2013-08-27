@@ -42,15 +42,13 @@
             </ul>
             <div class="navbar-form navbar-right">
                 <?php if ($user): ?>
-                    Logged In as:
                     <a href="<?php echo $this->Html->url(array('controller' => 'contacts', 'action' => 'edit', $user['id'])); ?>" class="btn btn-success">
                     <?php echo $user['name']; ?>
                     <?php if (!empty($user['derby_name'])): ?>
                         (<?php echo $user['derby_name']; ?>)
                     <?php endif; ?>
                         </a>
-                    <br />
-                    <?php echo $this->Html->link('Logout', array('controller' => 'contacts', 'action' => 'logout')); ?>
+                    <?php echo $this->Html->link('Logout', array('controller' => 'contacts', 'action' => 'logout'), array('class' => 'btn btn-danger')); ?>
                 <?php else: ?>
                     <?php echo $this->Html->link('Login', $fb_login_url); ?>
                 <?php endif; ?>

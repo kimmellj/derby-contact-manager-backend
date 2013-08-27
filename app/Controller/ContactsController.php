@@ -82,14 +82,12 @@ class ContactsController extends AppController
 
                 if ($contact) {
                     $this->Auth->login($contact['Contact']);
-                    $this->redirect(array('action' => 'index'));
+                    $this->redirect(array('action' => 'login'));
                 }
-
-                exit;
 
                 $this->redirect(array('action' => 'add'));
             } else {
-                $this->redirect('/');
+                $this->redirect(array('action' => 'login'));
             }
 
             /**
@@ -174,10 +172,15 @@ class ContactsController extends AppController
 
         try {
             $this->Facebook->setAccessToken($this->Session->read('FBAccessToken'));
-            $fbUser = $this->Facebook->api('/me');
+            $fbUser = $this->Facebook->api('/me', 'GET', array('fields' => 'id,name,username,link,picture'));
         } catch (Exception $e) {
             $this->redirect('/');
         }
+
+        $picture = file_get_contents($fbUser['picture']['data']['url']);
+        file_put_contents(WWW_ROOT . 'files/test.jpg', $picture);
+
+        debug($fbUser);
 
         if (!empty($this->request->data)) {
             $this->request->data['Contact']['password'] = AuthComponent::password(uniqid(md5(mt_rand())));
