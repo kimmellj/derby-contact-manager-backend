@@ -21,6 +21,13 @@
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
+                <div class="form-group">
+                    <label for="">Use Profile Picture</label>
+                    <div class="form-control">
+                        <?php echo $this->Form->checkbox('use_facebook_pic'); ?>
+                    </div>
+
+                </div>
                 <?php echo $this->Form->input('derby_name'); ?>
                 <?php echo $this->Form->input('organization_id'); ?>
                 <?php echo $this->Form->input('role_id'); ?>

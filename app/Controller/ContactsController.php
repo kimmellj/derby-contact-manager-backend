@@ -177,10 +177,7 @@ class ContactsController extends AppController
             $this->redirect('/');
         }
 
-        $picture = file_get_contents($fbUser['picture']['data']['url']);
-        file_put_contents(WWW_ROOT . 'files/test.jpg', $picture);
-
-        debug($fbUser);
+        $this->set('fbUser', $fbUser);
 
         if (!empty($this->request->data)) {
             $this->request->data['Contact']['password'] = AuthComponent::password(uniqid(md5(mt_rand())));
