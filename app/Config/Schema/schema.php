@@ -2,10 +2,32 @@
 class AppSchema extends CakeSchema {
 
 	public function before($event = array()) {
-		return true;
+        $db = ConnectionManager::getDataSource($this->connection);
+        $db->cacheSources = false;
+        return true;
 	}
 
 	public function after($event = array()) {
+        if (isset($event['create'])) {
+            switch ($event['create']) {
+                case 'roles':
+                    App::uses('ClassRegistry', 'Utility');
+
+                    $role = ClassRegistry::init('Role');
+                    $role->create();
+                    $role->save(array('Role' => array('name' => 'Skater')));
+                    $role->create();
+                    $role->save(array('Role' => array('name' => 'Zebra')));
+                    $role->create();
+                    $role->save(array('Role' => array('name' => 'NSO')));
+                    $role->create();
+                    $role->save(array('Role' => array('name' => 'Volunteer')));
+                    $role->create();
+                    $role->save(array('Role' => array('name' => 'Other')));
+
+                    break;
+            }
+        }
 	}
 
 	public $contacts = array(
@@ -15,6 +37,7 @@ class AppSchema extends CakeSchema {
 		'name' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
         'username' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
         'password' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+        'profile_pic' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'derby_name' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'phone' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'email' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),

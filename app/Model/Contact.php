@@ -46,6 +46,13 @@ class Contact extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
+        'Role' => array(
+            'className' => 'Role',
+            'foreignKey' => 'role_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        )
 	);
 }

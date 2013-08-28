@@ -1,10 +1,12 @@
 <div class="container">
     <h2>
+        <img src="<?php echo $contact['Contact']['profile_pic']; ?>" width="50" height="50" alt=""/>
         <?php echo $contact['Contact']['name']; ?>
-        <?php echo (!empty($contact['Contact']['derby_name']) && !empty($contact['Contact']['namem'])) ? '/': ''; ?>
+        <?php echo (!empty($contact['Contact']['derby_name']) && !empty($contact['Contact']['name'])) ? '/': ''; ?>
         <?php echo $contact['Contact']['derby_name']; ?>
     </h2>
     <h3>
+        <?php echo $contact['Role']['name']; ?> -
         <?php if (!empty($contact['Contact']['organization_id'])): ?>
             <?php echo $contact['Organization']['name']; ?>
         <?php else: ?>

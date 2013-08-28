@@ -14,6 +14,8 @@ class ContactsController extends AppController
      */
     public $components = array('RequestHandler');
 
+    private $allowExtensions = array('jpg','png', 'gif');
+
     public function beforeFilter()
     {
         parent::beforeFilter();
@@ -126,7 +128,12 @@ class ContactsController extends AppController
 
     public function view($id)
     {
-        $contact = $this->Contact->findById($id);
+        $contact = $this->Contact->find('first', array('conditions' => array('username' => $id)));
+
+        if (empty($contact)) {
+            $this->redirect(array('action' => 'index'));
+        }
+
         $this->set(array(
             'contact' => $contact
         ));
@@ -180,8 +187,12 @@ class ContactsController extends AppController
         $this->set('fbUser', $fbUser);
 
         if (!empty($this->request->data)) {
-            $this->request->data['Contact']['password'] = AuthComponent::password(uniqid(md5(mt_rand())));
-            $this->Contact->save($this->request->data);
+            $data = $this->request->data;
+            $data['Contact']['password'] = AuthComponent::password(uniqid(md5(mt_rand())));
+
+            $data = $this->manageProfilePic($data);
+
+            $this->Contact->save($data);
 
             $this->Auth->login($this->request->data['Contact']);
 
@@ -200,9 +211,71 @@ class ContactsController extends AppController
         }
     }
 
+    /**
+     * @todo Delete Old if it exists, check the id ?
+     * @param $data
+     * @param bool $default
+     * @return mixed
+     */
+    private function manageProfilePic ($data, $default = true)
+    {
+        try {
+            $this->Facebook->setAccessToken($this->Session->read('FBAccessToken'));
+            $fbUser = $this->Facebook->api('/me', 'GET', array('fields' => 'id,name,username,link,picture'));
+        } catch (Exception $e) {
+            $this->redirect('/');
+        }
+
+        if ($data['Contact']['use_facebook_pic'] == '0') {
+            if (
+                isset($data['Contact']['profile_pic']['tmp_name'])
+                && is_uploaded_file($data['Contact']['profile_pic']['tmp_name'])
+                && in_array(strtolower(pathinfo($data['Contact']['profile_pic']['name'], PATHINFO_EXTENSION)), $this->allowExtensions)
+            ) {
+                $tmpName = tempnam(WWW_ROOT.'files', 'profile_').'.'.strtolower(pathinfo($data['Contact']['profile_pic']['name'], PATHINFO_EXTENSION));
+                if (move_uploaded_file($data['Contact']['profile_pic']['tmp_name'], $tmpName)) {
+
+                    $image = new Gmagick($tmpName);
+                    $image->thumbnailImage(50,50);
+                    $image->write($tmpName);
+
+                    $data['Contact']['profile_pic'] = Router::url('/files/'.basename($tmpName), true);
+                } else {
+                    $data['Contact']['profile_pic'] = false;
+                }
+            } else {
+                $data['Contact']['profile_pic'] = false;
+            }
+        } else {
+            $tmpName = tempnam(WWW_ROOT.'files', 'profile_').'.'.strtolower(pathinfo($fbUser['picture']['data']['url'], PATHINFO_EXTENSION));
+            if (file_put_contents($tmpName, file_get_contents($fbUser['picture']['data']['url']))) {
+                $data['Contact']['profile_pic'] = Router::url('/files/'.basename($tmpName), true);
+            } else {
+                $data['Contact']['profile_pic'] = false;
+            }
+        }
+
+        if (!$data['Contact']['profile_pic']) {
+            if ($default) {
+                $data['Contact']['profile_pic'] = Router::url('/img/default-user.png', true);
+            } else {
+                unset($data['Contact']['profile_pic']);
+            }
+        }
+
+        return $data;
+    }
+
     public function edit()
     {
         $data = $this->request->input('json_decode');
+
+        try {
+            $this->Facebook->setAccessToken($this->Session->read('FBAccessToken'));
+            $fbUser = $this->Facebook->api('/me', 'GET', array('fields' => 'id,name,username,link,picture'));
+        } catch (Exception $e) {
+            $this->redirect('/');
+        }
 
         if ($data) {
             $postData = array('Contact' => array());
@@ -230,7 +303,10 @@ class ContactsController extends AppController
 
         if (!empty($this->request->data)) {
             $this->request->data['Contact']['id'] = $this->Auth->user('id');
-            $this->Contact->save($this->request->data);
+
+            $data = $this->manageProfilePic($this->request->data, false);
+
+            $this->Contact->save($data);
 
             $this->redirect(array('action' => 'index'));
         }
@@ -238,6 +314,11 @@ class ContactsController extends AppController
         if (empty($this->request->data)) {
             $this->request->data = $this->Contact->find('first', array('conditions' => array('Contact.id' => $this->Auth->user('id'))));
         }
+
+        $this->set('roles', $this->Contact->Role->find('list'));
+        $this->set('fbUser', $fbUser);
+
+
     }
 
     public function delete($id)

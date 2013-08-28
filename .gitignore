@@ -20,3 +20,4 @@ app/Config/facebook.php
 Icon?
 ehthumbs.db
 Thumbs.db
+/app/webroot/files/*

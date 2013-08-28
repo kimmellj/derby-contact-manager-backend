@@ -20,6 +20,8 @@
     <?php echo $this->Html->script('html5shiv'); ?>
     <?php echo $this->Html->script('respond.min'); ?>
     <![endif]-->
+
+    <?php echo $this->Html->script('jquery'); ?>
 </head>
 
 <body>
@@ -42,7 +44,7 @@
             </ul>
             <div class="navbar-form navbar-right">
                 <?php if ($user): ?>
-                    <a href="<?php echo $this->Html->url(array('controller' => 'contacts', 'action' => 'edit', $user['id'])); ?>" class="btn btn-success">
+                    <a href="<?php echo $this->Html->url(array('controller' => 'contacts', 'action' => 'edit')); ?>" class="btn btn-success">
                     <?php echo $user['name']; ?>
                     <?php if (!empty($user['derby_name'])): ?>
                         (<?php echo $user['derby_name']; ?>)
@@ -63,7 +65,7 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<?php echo $this->Html->script('jquery'); ?>
+
 <?php echo $this->Html->script('bootstrap'); ?>
 </body>
 </html>
