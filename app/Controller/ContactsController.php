@@ -198,6 +198,9 @@ class ContactsController extends AppController
                 )
             );
         }
+
+        $this->set('roles', $this->Contact->Role->find('list'));
+        $this->set('organizations', $this->Contact->Organization->find('list'));
     }
 
     public function edit()

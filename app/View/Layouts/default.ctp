@@ -20,6 +20,8 @@
     <?php echo $this->Html->script('html5shiv'); ?>
     <?php echo $this->Html->script('respond.min'); ?>
     <![endif]-->
+
+    <?php echo $this->Html->script('jquery'); ?>
 </head>
 
 <body>
@@ -63,7 +65,7 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<?php echo $this->Html->script('jquery'); ?>
+
 <?php echo $this->Html->script('bootstrap'); ?>
 </body>
 </html>
