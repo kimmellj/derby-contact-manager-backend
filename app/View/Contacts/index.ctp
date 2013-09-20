@@ -1,32 +1,70 @@
 <div class="container">
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Derby Name</th>
-                <th>Name</th>
-                <th>Organization</th>
-                <th>Roles</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($contacts as $contact): ?>
-                <tr>
-                    <td><?php echo $contact['Contact']['derby_name']; ?></td>
-                    <td><?php echo $contact['Contact']['name']; ?></td>
-                    <td>
-                        <?php foreach ($contact['Organization'] as $organization): ?>
-                            <?php echo $this->Html->link($organization['name'], '#', array('class' => 'btn btn-default')); ?>
-                        <?php endforeach; ?>
-                    </td>
-                    <td>
-                        <?php foreach ($contact['Role'] as $role): ?>
+
+    <ul class="nav nav-tabs">
+        <li class="<?php echo (empty($currentRoleId) || $currentRoleId == '%') ? 'active':''; ?>"><?php echo $this->Html->link('All', array('role_id' => '%')); ?></li>
+        <?php foreach ($roles as $roleId => $role): ?>
+            <li class="<?php echo (!empty($currentRoleId) && $currentRoleId == $roleId) ? 'active':''; ?>"><?php echo $this->Html->link($role, array('role_id' => $roleId)); ?></li>
+        <?php endforeach; ?>
+    </ul>
+
+
+    <div class="col-md-6 col-md-offset-3 row">
+        <ul class="pagination">
+            <?php
+            echo '<li>'.$this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled')).'</li>';
+            echo $this->Paginator->numbers(array('currentTag' => 'span', 'tag' => 'li', 'separator' => ''));
+            echo '<li>'.$this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled')).'</li>';
+            ?>
+        </ul>
+        <p>
+            <?php
+            echo $this->Paginator->counter(
+                'Page {:page} of {:pages}, showing {:current} records out of
+                 {:count} total, starting on record {:start}, ending on {:end}'
+            );
+            ?>
+        </p>
+    </div>
+    <div class="col-md-6 col-md-offset-3 row">
+        <?php foreach ($contacts as $contact): ?>
+            <div class="contact panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <?php echo $contact['Contact']['derby_name']; ?>
+                        <?php echo (!empty($contact['Contact']['name']) && !empty($contact['Contact']['derby_name'])) ? '/':''; ?>
+                        <?php echo $contact['Contact']['name']; ?>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="organizatons">
+                        <strong>Organizations: </strong>
+                        <?php $i = 0; foreach ($contact['Organization'] as $organization): ?>
+                            <?php echo $this->Html->link($organization['name'], '#', array('class' => '')); ?>
+                            <?php echo $i != sizeof($contact['Organization']) - 1 ? '/' : ''; ?>
+                        <?php $i++; endforeach; ?>
+                    </div>
+                    <hr>
+                    <div class="roles">
+                        <strong>Roles: </strong>
+                        <?php $i = 0; foreach ($contact['Role'] as $role): ?>
                             <?php echo $role['name']; ?>
-                        <?php endforeach; ?>
-                    </td>
-                    <td><?php echo $this->Html->link('View', array('action' => 'view', $contact['Contact']['id']), array('class' => 'btn btn-default')); ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+                            <?php echo $i != sizeof($contact['Role']) - 1 ? '/' : ''; ?>
+                        <?php $i++; endforeach; ?>
+                    </div>
+                    <hr>
+                    <?php echo $this->Html->link('View Full Details', array('action' => 'view', $contact['Contact']['id']), array('class' => 'btn btn-default')); ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <div class="col-md-6 col-md-offset-3 row">
+        <ul class="pagination">
+            <?php
+            echo '<li>'.$this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled')).'</li>';
+            echo $this->Paginator->numbers(array('currentTag' => 'span', 'tag' => 'li', 'separator' => ''));
+            echo '<li>'.$this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled')).'</li>';
+            ?>
+        </ul>
+    </div>
+
 </div>

@@ -60,6 +60,7 @@ class AppController extends Controller {
 
     public function beforeRender() {
         $this->set('fb_login_url', $this->Facebook->getLoginUrl(array('redirect_uri' => Router::url(array('controller' => 'contacts', 'action' => 'login'), true))));
-        $this->set('user', $this->Auth->user());
+        $user = $this->Auth->user();
+        $this->set('user', $user);
     }
 }

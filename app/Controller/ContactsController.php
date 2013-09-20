@@ -8,11 +8,16 @@ App::uses('AppController', 'Controller');
 class ContactsController extends AppController
 {
 
-    /**
-     * Components
-     * @access public
-     */
-    public $components = array('RequestHandler');
+    public $components = array('Paginator', 'RequestHandler');
+    public $paginate = array(
+        'Contact' => array(
+            'limit' => 25,
+            'order' => array(
+                'Contact.derby_name' => 'asc',
+                'Contact.name' => 'asc'
+            )
+        )
+    );
 
     public function beforeFilter()
     {
@@ -82,7 +87,7 @@ class ContactsController extends AppController
 
                 if ($contact) {
                     $this->Auth->login($contact['Contact']);
-                    $this->redirect(array('action' => 'login'));
+                    $this->redirect(array('action' => 'index'));
                 }
 
                 $this->redirect(array('action' => 'add'));
@@ -118,10 +123,22 @@ class ContactsController extends AppController
 
     public function index()
     {
-        $contacts = $this->Contact->find('all');
+        $this->Paginator->settings = $this->paginate;
+        if (!empty($this->request->params['named']['role_id']) && $this->request->params['named']['role_id'] != '%') {
+            $conditions = array('(SELECT COUNT(*) FROM contacts_roles cr WHERE cr.role_id=? AND cr.contact_id=Contact.id) > 0' => array($this->request->params['named']['role_id']));
+            $roleId = $this->request->params['named']['role_id'];
+        } else {
+            $conditions = array();
+            $roleId = '%';
+        }
+
+        $contacts =  $this->Paginator->paginate('Contact', $conditions);
         $this->set(array(
             'contacts' => $contacts
         ));
+
+        $this->set('roles', $this->Contact->Role->find('list'));
+        $this->set('currentRoleId', $roleId);
     }
 
     public function view($id)
@@ -183,6 +200,8 @@ class ContactsController extends AppController
             $this->request->data['Contact']['password'] = AuthComponent::password(uniqid(md5(mt_rand())));
             $this->Contact->save($this->request->data);
 
+            $this->request->data['Contact']['id'] = $this->Contact->id;
+
             $this->Auth->login($this->request->data['Contact']);
 
             $this->redirect(array('action' => 'index'));
@@ -241,6 +260,9 @@ class ContactsController extends AppController
         if (empty($this->request->data)) {
             $this->request->data = $this->Contact->find('first', array('conditions' => array('Contact.id' => $this->Auth->user('id'))));
         }
+
+        $this->set('roles', $this->Contact->Role->find('list'));
+        $this->set('organizations', $this->Contact->Organization->find('list'));
     }
 
     public function delete($id)

@@ -26,6 +26,10 @@
 
 <body>
 
+<div class="ribbon">
+    <a href="#">Beta</a>
+</div>
+
 <div class="navbar navbar-default navbar-staic-top">
     <div class="container">
         <div class="navbar-header">
@@ -39,7 +43,6 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><?php echo $this->Html->link('Home', '/'); ?></li>
-                <li><a href="#about">About</a></li>
                 <li><?php echo $this->Html->link('Contacts', array('controller' => 'contacts', 'action' => 'index')); ?></li>
             </ul>
             <div class="navbar-form navbar-right">
@@ -60,6 +63,8 @@
 </div>
 
 <?php echo $content_for_layout; ?>
+
+    <?php echo $this->element('sql_dump'); ?>
 
 
 <!-- Bootstrap core JavaScript

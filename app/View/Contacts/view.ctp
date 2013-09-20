@@ -1,15 +1,21 @@
 <div class="container">
     <h2>
         <?php echo $contact['Contact']['name']; ?>
-        <?php echo (!empty($contact['Contact']['derby_name']) && !empty($contact['Contact']['namem'])) ? '/': ''; ?>
+        <?php echo (!empty($contact['Contact']['derby_name']) && !empty($contact['Contact']['name'])) ? '/': ''; ?>
         <?php echo $contact['Contact']['derby_name']; ?>
     </h2>
     <h3>
-        <?php if (!empty($contact['Contact']['organization_id'])): ?>
-            <?php echo $contact['Organization']['name']; ?>
-        <?php else: ?>
-            Not Affiliated
-        <?php endif; ?>
+        <?php $i = 0; foreach ($contact['Organization'] as $organization): ?>
+            <?php echo $this->Html->link($organization['name'], '#', array('class' => '')); ?>
+            <?php echo $i != sizeof($contact['Organization']) - 1 ? '/' : ''; ?>
+            <?php $i++; endforeach; ?>
+    </h3>
+
+    <h3>
+        <?php $i = 0; foreach ($contact['Role'] as $role): ?>
+            <?php echo $role['name']; ?>
+            <?php echo $i != sizeof($contact['Role']) - 1 ? '/' : ''; ?>
+            <?php $i++; endforeach; ?>
     </h3>
 
     <?php echo $this->Html->link('Back to List', array('action' => 'index'), array('class' => 'btn btn-default pull-right')); ?>
