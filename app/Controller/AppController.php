@@ -22,6 +22,8 @@
  */
 App::uses('Controller', 'Controller');
 
+
+
 /**
  * Application Controller
  *
@@ -46,8 +48,16 @@ class AppController extends Controller {
 
     public function beforeFilter()
     {
+
+				try {
+					require_once dirname(dirname(__FILE__)).'/Vendor/facebook-php-sdk/src/facebook.php';
+				} catch (Exception $e) {
+					print_r($e);
+					exit;
+				}
+
         Configure::load('facebook', 'default');
-        App::import('Vendor', 'facebook-php-sdk/src/facebook');
+				
         $this->Facebook = new Facebook(array(
             'appId'     =>  Configure::read('Facebook.appId'),
             'secret'    =>  Configure::read('Facebook.secret')
