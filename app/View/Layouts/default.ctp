@@ -47,7 +47,7 @@
             </ul>
             <div class="navbar-form navbar-right">
                 <?php if ($user): ?>
-                    <a href="<?php echo $this->Html->url(array('controller' => 'contacts', 'action' => 'edit', $user['id'])); ?>" class="btn btn-success">
+                    <a href="<?php echo $this->Html->url(array('controller' => 'contacts', 'action' => 'edit')); ?>" class="btn btn-success">
                     <?php echo $user['name']; ?>
                     <?php if (!empty($user['derby_name'])): ?>
                         (<?php echo $user['derby_name']; ?>)
