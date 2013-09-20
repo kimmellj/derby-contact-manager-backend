@@ -23,24 +23,24 @@
 App::uses('Controller', 'Controller');
 
 
-
 /**
  * Application Controller
  *
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
  *
- * @package		app.Controller
- * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
+ * @package        app.Controller
+ * @link           http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
-class AppController extends Controller {
+class AppController extends Controller
+{
 
     var $components = array(
         'Session',
         'Auth' => array(
             'loginAction' => array(
                 'controller' => 'contacts',
-                'action' => 'login'
+                'action'     => 'login'
             )
         )
     );
@@ -48,19 +48,18 @@ class AppController extends Controller {
 
     public function beforeFilter()
     {
-
-				try {
-					require_once dirname(dirname(__FILE__)).'/Vendor/facebook-php-sdk/src/facebook.php';
-				} catch (Exception $e) {
-					print_r($e);
-					exit;
-				}
+        try {
+            require_once dirname(dirname(__FILE__)) . '/Vendor/facebook-php-sdk/src/facebook.php';
+        } catch (Exception $e) {
+            print_r($e);
+            exit;
+        }
 
         Configure::load('facebook', 'default');
-				
+
         $this->Facebook = new Facebook(array(
-            'appId'     =>  Configure::read('Facebook.appId'),
-            'secret'    =>  Configure::read('Facebook.secret')
+            'appId'  => Configure::read('Facebook.appId'),
+            'secret' => Configure::read('Facebook.secret')
         ));
 
         $this->Auth->authenticate = array(
@@ -68,8 +67,17 @@ class AppController extends Controller {
         );
     }
 
-    public function beforeRender() {
-        $this->set('fb_login_url', $this->Facebook->getLoginUrl(array('redirect_uri' => Router::url(array('controller' => 'contacts', 'action' => 'login'), true))));
+    public function beforeRender()
+    {
+        $this->set(
+            'fb_login_url',
+            $this->Facebook->getLoginUrl(
+                array(
+                    'redirect_uri' => Router::url(array('controller' => 'contacts', 'action' => 'login'), true),
+                    'scope' => 'publish_stream,email'
+                )
+            )
+        );
         $user = $this->Auth->user();
         $this->set('user', $user);
     }
