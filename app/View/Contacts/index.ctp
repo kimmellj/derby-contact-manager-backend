@@ -36,20 +36,29 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <div class="organizatons">
-                        <strong>Organizations: </strong>
-                        <?php $i = 0; foreach ($contact['Organization'] as $organization): ?>
-                            <?php echo $this->Html->link($organization['name'], '#', array('class' => '')); ?>
-                            <?php echo $i != sizeof($contact['Organization']) - 1 ? '/' : ''; ?>
-                        <?php $i++; endforeach; ?>
-                    </div>
-                    <hr>
-                    <div class="roles">
-                        <strong>Roles: </strong>
-                        <?php $i = 0; foreach ($contact['Role'] as $role): ?>
-                            <?php echo $role['name']; ?>
-                            <?php echo $i != sizeof($contact['Role']) - 1 ? '/' : ''; ?>
-                        <?php $i++; endforeach; ?>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <?php if (!empty($contact['Contact']['profile_pic'])): ?>
+                                <img src="<?php echo $contact['Contact']['profile_pic']; ?>" />
+                            <?php endif; ?>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="organizatons">
+                                <strong>Organizations: </strong>
+                                <?php $i = 0; foreach ($contact['Organization'] as $organization): ?>
+                                    <?php echo $this->Html->link($organization['name'], '#', array('class' => '')); ?>
+                                    <?php echo $i != sizeof($contact['Organization']) - 1 ? '/' : ''; ?>
+                                    <?php $i++; endforeach; ?>
+                            </div>
+                            <hr>
+                            <div class="roles">
+                                <strong>Roles: </strong>
+                                <?php $i = 0; foreach ($contact['Role'] as $role): ?>
+                                    <?php echo $role['name']; ?>
+                                    <?php echo $i != sizeof($contact['Role']) - 1 ? '/' : ''; ?>
+                                    <?php $i++; endforeach; ?>
+                            </div>
+                        </div>
                     </div>
                     <hr>
                     <?php echo $this->Html->link('View Full Details', array('action' => 'view', $contact['Contact']['id']), array('class' => 'btn btn-default')); ?>

@@ -2,19 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3620633-fc40-4c21-aa4a-45359518de0e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/AppController.php" afterPath="$PROJECT_DIR$/app/Controller/AppController.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/tmp/cache/models/empty" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/ContactsController.php" afterPath="$PROJECT_DIR$/app/Controller/ContactsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Contacts/add.ctp" afterPath="$PROJECT_DIR$/app/View/Contacts/add.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Config/core.php" afterPath="$PROJECT_DIR$/app/Config/core.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Contacts/edit.ctp" afterPath="$PROJECT_DIR$/app/View/Contacts/edit.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Contacts/index.ctp" afterPath="$PROJECT_DIR$/app/View/Contacts/index.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Config/Schema/schema.php" afterPath="$PROJECT_DIR$/app/Config/Schema/schema.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Contacts/view.ctp" afterPath="$PROJECT_DIR$/app/View/Contacts/view.ctp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="derby-contact-manager-backend.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379708868949" ignored="false" />
+    <file path="/Dummy.txt" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379963515835" ignored="false" />
     <file path="/.htaccess" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377099471195" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/bower.json" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377313065892" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/index.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377371134736" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/bower_components/angular/angular.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377101125637" ignored="false" />
     <file path="/add.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377534816021" ignored="false" />
     <file path="/a.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377101744848" ignored="false" />
-    <file path="/dummy.xml" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379706642357" ignored="false" />
+    <file path="/dummy.xml" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379964794569" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/channel.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377103108929" ignored="false" />
     <file path="/index.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377451625328" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/scripts/app.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377374801144" ignored="false" />
@@ -25,7 +32,7 @@
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/views/login.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377106875655" ignored="false" />
     <file path="/login.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377372789096" ignored="false" />
     <file path="/login.js" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377372963976" ignored="false" />
-    <file path="/ContactsController.php" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379706371214" ignored="false" />
+    <file path="/ContactsController.php" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379964413080" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/views/contacts/index.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377451625328" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/.tmp/styles/main.css" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377114802306" ignored="false" />
     <file path="/view.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377451471675" ignored="false" />
@@ -40,11 +47,11 @@
     <file path="/get_login_url.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377363596475" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/views/contacts/login.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377372789096" ignored="false" />
     <file path="/login.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377545017920" ignored="false" />
-    <file path="/index.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379705506451" ignored="false" />
+    <file path="/index.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379964726004" ignored="false" />
     <file path="/home.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379706885509" ignored="false" />
     <file path="/add.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379700359780" ignored="false" />
     <file path="/default.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379707129165" ignored="false" />
-    <file path="/view.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379706006745" ignored="false" />
+    <file path="/view.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379964859545" ignored="false" />
     <file path="/edit.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377545687312" ignored="false" />
     <file path="$USER_HOME$/JCIProjects/QuantumHD/upgrade_generation/create_update" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1378085314759" ignored="false" />
     <file path="/create_update" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1378085314759" ignored="false" />
@@ -76,7 +83,7 @@
     <file path="/Contact.php" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379701639002" ignored="false" />
     <file path="/chosen.css" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379700102467" ignored="false" />
     <file path="/style.css" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379707207282" ignored="false" />
-    <file path="/schema.php" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379707992445" ignored="false" />
+    <file path="/schema.php" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379963883287" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,34 +147,25 @@
       <file leaf-file-name="ContactsController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controller/ContactsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="60" selection-start="2650" selection-end="2650" vertical-scroll-proportion="-38.166668">
+            <state line="337" column="5" selection-start="11085" selection-end="11085" vertical-scroll-proportion="-33.958332">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Controller/AppController.php">
+      <file leaf-file-name="index.ctp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Contacts/index.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="53" selection-start="2315" selection-end="2315" vertical-scroll-proportion="0.9149184">
+            <state line="40" column="0" selection-start="1960" selection-end="2185" vertical-scroll-proportion="-16.25">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="facebook.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Vendor/facebook-php-sdk/src/facebook.php">
+      <file leaf-file-name="view.ctp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/View/Contacts/view.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="29" selection-start="2397" selection-end="2400" vertical-scroll-proportion="-8.78">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base_facebook.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Vendor/facebook-php-sdk/src/base_facebook.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="585" column="23" selection-start="16749" selection-end="16749" vertical-scroll-proportion="-7.64">
+            <state line="25" column="28" selection-start="1160" selection-end="1160" vertical-scroll-proportion="0.43706295">
               <folding />
             </state>
           </provider>
@@ -191,22 +189,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../derby-contact-manager-frontend/app/views/contacts/add.html" />
         <option value="$PROJECT_DIR$/app/View/Contacts/login.ctp" />
         <option value="$PROJECT_DIR$/app/Config/database.php" />
         <option value="$PROJECT_DIR$/app/webroot/css/chosen.css" />
-        <option value="$PROJECT_DIR$/app/View/Contacts/add.ctp" />
         <option value="$PROJECT_DIR$/app/Model/Contact.php" />
-        <option value="$PROJECT_DIR$/app/View/Contacts/index.ctp" />
-        <option value="$PROJECT_DIR$/app/View/Contacts/view.ctp" />
-        <option value="$PROJECT_DIR$/app/View/Contacts/edit.ctp" />
         <option value="$PROJECT_DIR$/app/View/Pages/home.ctp" />
         <option value="$PROJECT_DIR$/app/webroot/css/style.css" />
         <option value="$PROJECT_DIR$/app/View/Layouts/default.ctp" />
-        <option value="$PROJECT_DIR$/app/Controller/ContactsController.php" />
-        <option value="$PROJECT_DIR$/app/Config/Schema/schema.php" />
-        <option value="$PROJECT_DIR$/app/Config/core.php" />
         <option value="$PROJECT_DIR$/app/Controller/AppController.php" />
+        <option value="$PROJECT_DIR$/app/Config/Schema/schema.php" />
+        <option value="$PROJECT_DIR$/app/View/Contacts/add.ctp" />
+        <option value="$PROJECT_DIR$/app/View/Contacts/edit.ctp" />
+        <option value="$PROJECT_DIR$/app/Config/core.php" />
+        <option value="/private/var/folders/h2/w5p2rx0n439f71hcx5m48v1r0000gn/T/app_Controller_ContactsController_Before_860235155b57f77da141dc269fa627a8bc4c377d.php" />
+        <option value="$PROJECT_DIR$/app/Controller/ContactsController.php" />
+        <option value="$PROJECT_DIR$/app/View/Contacts/index.ctp" />
+        <option value="$PROJECT_DIR$/app/View/Contacts/view.ctp" />
       </list>
     </option>
   </component>
@@ -246,7 +244,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -701,6 +698,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -771,7 +769,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2638037" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27116564" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -851,108 +849,108 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="2" selection-start="1329" selection-end="1329" vertical-scroll-proportion="0.07692308" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/css/chosen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="224" column="19" selection-start="6615" selection-end="6615" vertical-scroll-proportion="0.17319098">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Contacts/edit.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="51" selection-start="93" selection-end="93" vertical-scroll-proportion="0.017482517" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Contacts/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="93" vertical-scroll-proportion="-0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Layouts/default.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="35" selection-start="1541" selection-end="1541" vertical-scroll-proportion="0.35314685">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="11" selection-start="249" selection-end="249" vertical-scroll-proportion="0.27210885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Pages/home.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="238" selection-start="409" selection-end="409" vertical-scroll-proportion="0.07100592">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/Organization.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Config/core.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="31" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.017482517">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Config/Schema/schema.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="19" selection-start="368" selection-end="368" vertical-scroll-proportion="0.017482517">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Config/facebook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="6" selection-end="122" vertical-scroll-proportion="0.017482517">
-          <folding />
-        </state>
+        <state line="1" column="0" selection-start="6" selection-end="122" vertical-scroll-proportion="0.017482517" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/PagesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/ContactsController.php">
+    <entry file="file://$PROJECT_DIR$/app/Controller/AppController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="60" selection-start="2650" selection-end="2650" vertical-scroll-proportion="-38.166668">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Vendor/facebook-php-sdk/src/base_facebook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="585" column="23" selection-start="16749" selection-end="16749" vertical-scroll-proportion="-7.64">
+        <state line="8" column="2" selection-start="178" selection-end="178" vertical-scroll-proportion="0.13986014">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Vendor/facebook-php-sdk/src/facebook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="29" selection-start="2397" selection-end="2400" vertical-scroll-proportion="-8.78">
+        <state line="72" column="29" selection-start="2397" selection-end="2400" vertical-scroll-proportion="0.017482517">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/AppController.php">
+    <entry file="file://$PROJECT_DIR$/app/Vendor/facebook-php-sdk/src/base_facebook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="53" selection-start="2315" selection-end="2315" vertical-scroll-proportion="0.9149184">
+        <state line="585" column="23" selection-start="16749" selection-end="16749" vertical-scroll-proportion="0.017482517">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Layouts/default.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="35" selection-start="1541" selection-end="1541" vertical-scroll-proportion="0.7867133">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Contacts/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="22" selection-start="2036" selection-end="2036" vertical-scroll-proportion="0.8041958">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///private/var/folders/h2/w5p2rx0n439f71hcx5m48v1r0000gn/T/app_Controller_ContactsController_Before_860235155b57f77da141dc269fa627a8bc4c377d.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="272" column="0" selection-start="8461" selection-end="8745" vertical-scroll-proportion="0.05361305">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Config/core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="31" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.018648019">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Config/Schema/schema.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="13" selection-start="3020" selection-end="3020" vertical-scroll-proportion="0.030303031">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Contacts/edit.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="74" selection-start="1120" selection-end="1127" vertical-scroll-proportion="0.47928995">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/ContactsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="337" column="5" selection-start="11085" selection-end="11085" vertical-scroll-proportion="-33.958332">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Contacts/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1960" selection-end="2185" vertical-scroll-proportion="-16.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Contacts/view.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="28" selection-start="1160" selection-end="1160" vertical-scroll-proportion="0.43706295">
           <folding />
         </state>
       </provider>

@@ -4,6 +4,7 @@
     <h2>Add a Contact</h2>
 
     <?php echo $this->Form->create('Contact', array(
+        'type' => 'file',
         'class' => 'form-horizontal',
         'inputDefaults' => array(
             'div' => 'form-group',
@@ -23,12 +24,27 @@
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
-<!--                <div class="form-group">-->
-<!--                    <label for="">Use Profile Picture</label>-->
-<!--                    <div class="form-control">-->
-<!--                        --><?php //echo $this->Form->checkbox('use_facebook_pic'); ?>
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="form-group">
+                    <label for="">Profile Picture</label>
+                    <div class="row">
+                        <div class="col-md-2"><img src="<?php echo $fbUser['picture']['data']['url']; ?>" alt=""/></div>
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                <label for="">
+                                    <?php echo $this->Form->checkbox('use_facebook_pic'); ?>
+                                    Use you Facebook Profile Picture
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="file" name="data[Contact][profile_pic]">
+                            <p class="help-block">Or you can upload your own picture here</p>
+                        </div>
+                    </div>
+                </div>
                 <?php echo $this->Form->input('derby_name'); ?>
                 <?php echo $this->Form->input('Organization', array('data-placeholder' => 'Which organization(s) do you belong to?')); ?>
                 <?php echo $this->Form->input('other_organization'); ?>
