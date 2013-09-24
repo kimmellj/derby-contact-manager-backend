@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b3620633-fc40-4c21-aa4a-45359518de0e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Contacts/index.ctp" afterPath="$PROJECT_DIR$/app/View/Contacts/index.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="derby-contact-manager-backend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +39,7 @@
     <file path="/get_login_url.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377363596475" ignored="false" />
     <file path="$PROJECT_DIR$/../derby-contact-manager-frontend/app/views/contacts/login.html" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377372789096" ignored="false" />
     <file path="/login.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1377545017920" ignored="false" />
-    <file path="/index.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379964726004" ignored="false" />
+    <file path="/index.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379988051565" ignored="false" />
     <file path="/home.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379706885509" ignored="false" />
     <file path="/add.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379700359780" ignored="false" />
     <file path="/default.ctp" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1379707129165" ignored="false" />
@@ -149,7 +148,7 @@
       <file leaf-file-name="index.ctp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/View/Contacts/index.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="158" selection-start="213" selection-end="213" vertical-scroll-proportion="0.053254437">
+            <state line="41" column="114" selection-start="2162" selection-end="2162" vertical-scroll-proportion="0.7278106">
               <folding />
             </state>
           </provider>
@@ -923,7 +922,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Contacts/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="158" selection-start="213" selection-end="213" vertical-scroll-proportion="0.053254437">
+        <state line="41" column="114" selection-start="2162" selection-end="2162" vertical-scroll-proportion="0.7278106">
           <folding />
         </state>
       </provider>

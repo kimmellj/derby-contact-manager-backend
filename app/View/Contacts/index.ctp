@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-md-2">
                             <?php if (!empty($contact['Contact']['profile_pic'])): ?>
-                                <img src="<?php echo $contact['Contact']['profile_pic']; ?>" />
+                                <img src="<?php echo $contact['Contact']['profile_pic']; ?>" height="50" width="50" />
                             <?php endif; ?>
                         </div>
                         <div class="col-md-8">
