@@ -43,6 +43,14 @@
             <dt>Facebook Link</dt>
             <dd><?php echo $this->Html->link($contact['Contact']['facebook_link']); ?></dd>
         <?php endif; ?>
+        <?php if (!empty($contact['Contact']['certification'])): ?>
+            <dt>Ref Certification</dt>
+            <dd><?php echo $contact['Contact']['certification']; ?></dd>
+        <?php endif; ?>
+        <?php if (!empty($contact['Contact']['resume'])): ?>
+            <dt>Ref Resume</dt>
+            <dd><?php echo $this->Html->link($contact['Contact']['resume']); ?></dd>
+        <?php endif; ?>
     </dl>
 
 </div>

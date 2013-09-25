@@ -19,6 +19,8 @@
                 <?php echo $this->Form->input('email'); ?>
                 <?php echo $this->Form->input('phone'); ?>
                 <?php echo $this->Form->input('facebook_link'); ?>
+                <?php echo $this->Form->input('certification'); ?>
+                <?php echo $this->Form->input('resume'); ?>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">

@@ -19,10 +19,15 @@ class ContactsController extends AppController
             )
         )
     );
+    public $defaultIndexView = 'card';
 
     public function beforeFilter()
     {
         parent::beforeFilter();
+
+        if ($this->Session->read('defaultIndexView')) {
+            $this->defaultIndexView = $this->Session->read('defaultIndexView');
+        }
 
         $this->Auth->allow(array('login', 'add'));
     }
@@ -122,7 +127,7 @@ class ContactsController extends AppController
         ));
     }
 
-    public function index()
+    public function index($style = 'default')
     {
         $this->Paginator->settings = $this->paginate;
         if (!empty($this->request->params['named']['role_id']) && $this->request->params['named']['role_id'] != '%') {
@@ -140,6 +145,14 @@ class ContactsController extends AppController
 
         $this->set('roles', $this->Contact->Role->find('list'));
         $this->set('currentRoleId', $roleId);
+
+        if ($style == 'default') {
+            $style = $this->defaultIndexView;
+        }
+
+        $this->Session->write('defaultIndexView', $style);
+
+        $this->view = 'index_'. $style;
     }
 
     public function view($id)

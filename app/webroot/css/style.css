@@ -35,3 +35,29 @@
     /* shadow */
     text-shadow: 0 0 0.5em #444;
 }
+.organizations {
+    width: 1%;
+}
+.organizations div {
+    overflow: hidden;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 200px;
+}
+
+.roles {
+    width: 1%;
+}
+.roles div {
+    overflow: hidden;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 200px;
+}
+
+td.actions {
+    width: 1%;
+    white-space: nowrap;
+}
