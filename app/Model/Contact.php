@@ -7,13 +7,21 @@ App::uses('AppModel', 'Model');
  */
 class Contact extends AppModel
 {
-
     /**
      * Display field
      *
      * @var string
      */
     public $displayField = 'name';
+    
+    public $actsAs = array('Containable');
+    
+    /**
+     * Is the user looking at this model verified?
+     *
+     * @var boolean
+     */
+    public $verifiedViewer = false;
 
     /**
      * Validation rules
@@ -35,6 +43,13 @@ class Contact extends AppModel
 
     //The Associations below have been created with all possible keys, those that are not needed can be removed
 
+    /**
+     *hasMany associations
+     *
+     *@var array
+     */
+    public $hasMany = array('AuthorizedContact');
+    
     /**
      * belongsTo associations
      *
@@ -64,5 +79,25 @@ class Contact extends AppModel
         }
 
         return true;
+    }
+    
+    public function afterFind($results, $primary = false)
+    {
+        if (!$this->verifiedViewer) {
+            foreach ($results as $key => $value) {
+                $value['Contact']['name'] = '';
+                $value['Contact']['phone'] = '';
+                $value['Contact']['email'] = '';
+                $value['Contact']['address'] = '';
+                $value['Contact']['city'] = '';
+                $value['Contact']['state'] = '';
+                $value['Contact']['zip'] = '';
+                $value['Contact']['facebook_link'] = '';
+                
+                $results[$key] = $value;
+            }
+        }
+        
+        return $results;
     }
 }

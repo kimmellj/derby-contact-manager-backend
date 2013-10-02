@@ -20,6 +20,8 @@ class ContactsController extends AppController
         )
     );
     public $defaultIndexView = 'card';
+	public $contactAuthorizedToVerify = false;
+	public $contactVerified = false;
 
     public function beforeFilter()
     {
@@ -30,6 +32,12 @@ class ContactsController extends AppController
         }
 
         $this->Auth->allow(array('login', 'add'));
+		
+		if ($this->Auth->loggedIn()) {
+			$this->contactVerified = $this->Contact->field('verified', array('id' => $this->Auth->user('id')));
+			$this->contactAuthorizedToVerify = Set::extract('/AuthorizedContact/organization_id', ClassRegistry::init('AuthorizedContact')->find('all', array('conditions' => array('AuthorizedContact.contact_id' => $this->Auth->user('id')), 'contain' => false)));
+			$this->Contact->verifiedViewer = $this->contactVerified;
+		}
     }
 
     /**
@@ -145,6 +153,7 @@ class ContactsController extends AppController
 
         $this->set('roles', $this->Contact->Role->find('list'));
         $this->set('currentRoleId', $roleId);
+		$this->set('contactAuthorizedToVerify', $this->contactAuthorizedToVerify);
 
         if ($style == 'default') {
             $style = $this->defaultIndexView;
@@ -349,6 +358,35 @@ class ContactsController extends AppController
 
         return $data;
     }
+	
+	public function verify ($id)
+	{
+		$contactToVerify = $this->Contact->findById($id);
+		
+		if (empty($contactToVerify)) {
+			$this->redirect(array('action' => 'index'));
+		}
+		
+		$authorized = false;
+		
+		foreach ($contactToVerify['Organization'] as $organization) {
+			if (in_array($organization['id'], $this->contactAuthorizedToVerify)) {
+				$authorized = true;
+			}
+		}
+		
+		if (!$authorized) {
+			$this->Session->setFlash("You are not authorized to verify this contact.", 'default', array('class' => 'alert alert-danger'));
+			$this->redirect(array('action' => 'index'));
+		}
+		
+		$contactToVerify['Contact']['verified'] = 1;
+		
+		$this->Contact->save($contactToVerify);
+		
+		$this->Session->setFlash("You have successfully verified a contact.", 'default', array('class' => 'alert alert-success'));
+		$this->redirect(array('action' => 'index'));
+	}
 
     public function delete($id)
     {

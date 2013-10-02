@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3620633-fc40-4c21-aa4a-45359518de0e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/View/Contacts/index_list.ctp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/View/Contacts/index.ctp" afterPath="$PROJECT_DIR$/app/View/Contacts/index_card.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/ContactsController.php" afterPath="$PROJECT_DIR$/app/Controller/ContactsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Contacts/add.ctp" afterPath="$PROJECT_DIR$/app/View/Contacts/add.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Contacts/edit.ctp" afterPath="$PROJECT_DIR$/app/View/Contacts/edit.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/css/style.css" afterPath="$PROJECT_DIR$/app/webroot/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Contacts/view.ctp" afterPath="$PROJECT_DIR$/app/View/Contacts/view.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="b3620633-fc40-4c21-aa4a-45359518de0e" name="Default" comment="" />
     <ignored path="derby-contact-manager-backend.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="b3620633-fc40-4c21-aa4a-45359518de0e" time="1380118407383" ignored="false" />
@@ -202,7 +193,7 @@
       <file leaf-file-name="core.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Config/core.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="31" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.017964073">
+            <state line="85" column="0" selection-start="3239" selection-end="3239" vertical-scroll-proportion="0.9161677">
               <folding />
             </state>
           </provider>
@@ -1002,7 +993,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Config/core.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="31" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.017964073">
+        <state line="85" column="0" selection-start="3239" selection-end="3239" vertical-scroll-proportion="0.9161677">
           <folding />
         </state>
       </provider>

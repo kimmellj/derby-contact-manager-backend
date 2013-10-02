@@ -1,4 +1,6 @@
 <div class="container">
+    
+    <?php echo $this->Session->flash(); ?>
 
     <ul class="nav nav-tabs">
         <li class="<?php echo (empty($currentRoleId) || $currentRoleId == '%') ? 'active':''; ?>"><?php echo $this->Html->link('All', array('role_id' => false)); ?></li>
@@ -55,9 +57,10 @@
                             <div class="col-md-8">
                                 <div class="organizatons">
                                     <strong>Organizations: </strong>
-                                    <?php $i = 0; foreach ($contact['Organization'] as $organization): ?>
+                                    <?php $showAuthorizeButton = false; $i = 0; foreach ($contact['Organization'] as $organization): ?>
                                         <?php echo $this->Html->link($organization['name'], '#', array('class' => '')); ?>
                                         <?php echo $i != sizeof($contact['Organization']) - 1 ? '/' : ''; ?>
+                                        <?php if(in_array($organization['id'], $contactAuthorizedToVerify)) { $showAuthorizeButton = true; } ?>
                                         <?php $i++; endforeach; ?>
                                 </div>
                                 <hr>
@@ -72,6 +75,15 @@
                         </div>
                         <hr>
                         <?php echo $this->Html->link('View Full Details', array('action' => 'view', $contact['Contact']['id']), array('class' => 'btn btn-default')); ?>
+                        
+                        <?php if ($contact['Contact']['verified']): ?>
+                            <?php echo $this->Html->link('This contact has been verified', '#', array('class' => 'btn btn-default disabled')); ?>
+                        <?php else: ?>
+                            <?php if ($showAuthorizeButton): ?>
+                                <?php echo $this->Html->link('Verify this user', array('action' => 'verify', $contact['Contact']['id']), array('class' => 'btn btn-primary')); ?>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                        
                     </div>
                 </div>
             <?php endforeach; ?>
