@@ -361,7 +361,10 @@ class ContactsController extends AppController
 	
 	public function verify ($id)
 	{
+		$this->Contact->verifiedViewer = true;
 		$contactToVerify = $this->Contact->findById($id);
+
+		unset($contactToVerify['Contact']['password']);
 		
 		if (empty($contactToVerify)) {
 			$this->redirect(array('action' => 'index'));
@@ -381,7 +384,6 @@ class ContactsController extends AppController
 		}
 		
 		$contactToVerify['Contact']['verified'] = 1;
-		
 		$this->Contact->save($contactToVerify);
 		
 		$this->Session->setFlash("You have successfully verified a contact.", 'default', array('class' => 'alert alert-success'));
