@@ -22,6 +22,7 @@ class ContactsController extends AppController
     public $defaultIndexView = 'card';
 	public $contactAuthorizedToVerify = false;
 	public $contactVerified = false;
+	public $canAuthorizeCurrentContact = array();
 
     public function beforeFilter()
     {
@@ -33,12 +34,27 @@ class ContactsController extends AppController
 
         $this->Auth->allow(array('login', 'add'));
 		
+		$this->AuthorizedContact = ClassRegistry::init('AuthorizedContact');
+		
 		if ($this->Auth->loggedIn()) {
 			$this->contactVerified = $this->Contact->field('verified', array('id' => $this->Auth->user('id')));
-			$this->contactAuthorizedToVerify = Set::extract('/AuthorizedContact/organization_id', ClassRegistry::init('AuthorizedContact')->find('all', array('conditions' => array('AuthorizedContact.contact_id' => $this->Auth->user('id')), 'contain' => false)));
+			
+			$contactOrganizations = Set::extract('/Organization/id', $this->Contact->find('first', array('conditions' =>  array('id' => $this->Auth->user('id')), 'contain' => array('Organization'))));
+			
+			$this->contactAuthorizedToVerify = Set::extract('/AuthorizedContact/organization_id', $this->AuthorizedContact->find('all', array('conditions' => array('AuthorizedContact.contact_id' => $this->Auth->user('id')), 'contain' => false)));
+			$this->Contact->verifiedViewer = true;
+			$this->canAuthorizeCurrentContact = $this->AuthorizedContact->find('all', array('conditions' => array('AuthorizedContact.organization_id' => $contactOrganizations), 'contain' => array('Contact' => array('id', 'name', 'derby_name', 'email'))));
 			$this->Contact->verifiedViewer = $this->contactVerified;
 		}
     }
+	
+	public function beforeRender()
+	{
+		parent::beforeRender();
+		$this->set('contactAuthorizedToVerify', $this->contactAuthorizedToVerify);
+		$this->set('contactVerified', $this->contactVerified);
+		$this->set('canAuthorizeCurrentContact', $this->canAuthorizeCurrentContact);
+	}
 
     /**
      * @todo implment
@@ -153,7 +169,6 @@ class ContactsController extends AppController
 
         $this->set('roles', $this->Contact->Role->find('list'));
         $this->set('currentRoleId', $roleId);
-		$this->set('contactAuthorizedToVerify', $this->contactAuthorizedToVerify);
 
         if ($style == 'default') {
             $style = $this->defaultIndexView;

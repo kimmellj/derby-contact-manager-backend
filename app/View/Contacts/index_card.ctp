@@ -1,6 +1,30 @@
 <div class="container">
     
     <?php echo $this->Session->flash(); ?>
+    
+    <?php if (!$contactVerified): ?>
+        <div class="alert alert-warning">
+            Bummer, it looks like your not verified yet. This means you will only be able to view Derby Names, Organizations and Roles. <br />
+            Getting verified is easy though! An <strong>Authorized</strong> member from your organization can login and verify you. <br /><br />
+            The following people are <strong>Authorized</strong> to verify you:<br />
+            <ul>
+                <?php $ownerFound = false; foreach ($canAuthorizeCurrentContact as $contact): ?>
+                    <?php if ($contact['Contact']['email'] == 'kimmellj@gmail.com') { $ownerFound = true; } ?>
+                    <li>
+                            <?php echo $contact['Contact']['derby_name']; ?>
+                            <?php echo (!empty($contact['Contact']['name']) && !empty($contact['Contact']['derby_name'])) ? '/':''; ?>
+                            <?php echo $contact['Contact']['name']; ?> -
+                            <?php echo $contact['Contact']['email']; ?>
+                    </li>
+                <?php endforeach; ?>
+                <?php if (!$ownerFound): ?>
+                    <li>(Site Owner) Predicament / Jamie Kimmell - kimmellj@gmail.com</li>
+                <?php endif; ?>
+            </ul>
+            <br />
+            Please get in touch with one of your Authorized contacts and have them verify you. Once verified you will be able to view all details about a contact.
+        </div>
+    <?php endif; ?>
 
     <ul class="nav nav-tabs">
         <li class="<?php echo (empty($currentRoleId) || $currentRoleId == '%') ? 'active':''; ?>"><?php echo $this->Html->link('All', array('role_id' => false)); ?></li>
@@ -37,7 +61,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-7 col-md-offset-2 col-sm-12">
             <?php foreach ($contacts as $contact): ?>
                 <div class="contact panel panel-default">
                     <div class="panel-heading">
@@ -90,7 +114,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-7 col-md-offset-2 col-sm-12">
             <ul class="pagination">
                 <?php
                 echo '<li>'.$this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled')).'</li>';

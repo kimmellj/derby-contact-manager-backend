@@ -1,5 +1,31 @@
 <div class="container">
 
+    <?php echo $this->Session->flash(); ?>
+    
+    <?php if (!$contactVerified): ?>
+        <div class="alert alert-warning">
+            Bummer, it looks like your not verified yet. This means you will only be able to view Derby Names, Organizations and Roles. <br />
+            Getting verified is easy though! An <strong>Authorized</strong> member from your organization can login and verify you. <br /><br />
+            The following people are <strong>Authorized</strong> to verify you:<br />
+            <ul>
+                <?php $ownerFound = false; foreach ($canAuthorizeCurrentContact as $contact): ?>
+                    <?php if ($contact['Contact']['email'] == 'kimmellj@gmail.com') { $ownerFound = true; } ?>
+                    <li>
+                            <?php echo $contact['Contact']['derby_name']; ?>
+                            <?php echo (!empty($contact['Contact']['name']) && !empty($contact['Contact']['derby_name'])) ? '/':''; ?>
+                            <?php echo $contact['Contact']['name']; ?> -
+                            <?php echo $contact['Contact']['email']; ?>
+                    </li>
+                <?php endforeach; ?>
+                <?php if (!$ownerFound): ?>
+                    <li>(Site Owner) Predicament / Jamie Kimmell - kimmellj@gmail.com</li>
+                <?php endif; ?>
+            </ul>
+            <br />
+            Please get in touch with one of your Authorized contacts and have them verify you. Once verified you will be able to view all details about a contact.
+        </div>
+    <?php endif; ?>
+
     <ul class="nav nav-tabs">
         <li class="<?php echo (empty($currentRoleId) || $currentRoleId == '%') ? 'active':''; ?>"><?php echo $this->Html->link('All', array('role_id' => false)); ?></li>
         <?php foreach ($roles as $roleId => $role): ?>
@@ -40,9 +66,10 @@
                     <tr>
                         <td class="organizations">
                            <div>
-                           <?php $i = 0; foreach ($contact['Organization'] as $organization): ?>
+                           <?php $i = 0;$showAuthorizeButton = false; foreach ($contact['Organization'] as $organization): ?>
                                <?php echo $this->Html->link($organization['name'], '#', array('class' => '')); ?>
                                <?php echo $i != sizeof($contact['Organization']) - 1 ? '/' : ''; ?>
+                               <?php if(in_array($organization['id'], $contactAuthorizedToVerify)) { $showAuthorizeButton = true; } ?>
                            <?php $i++; endforeach; ?>
                            </div>
                         </td>
@@ -59,7 +86,16 @@
                             <?php $i++; endforeach; ?>
                             </div>
                         </td>
-                        <td class="actions"><?php echo $this->Html->link('View Full Details', array('action' => 'view', $contact['Contact']['id']), array('class' => 'btn btn-default')); ?></td>
+                        <td class="actions">
+                            <?php echo $this->Html->link('View Full Details', array('action' => 'view', $contact['Contact']['id']), array('class' => 'btn btn-default')); ?>
+                            <?php if ($contact['Contact']['verified']): ?>
+                                <?php echo $this->Html->link('This contact has been verified', '#', array('class' => 'btn btn-default disabled')); ?>
+                            <?php else: ?>
+                                <?php if ($showAuthorizeButton): ?>
+                                    <?php echo $this->Html->link('Verify this user', array('action' => 'verify', $contact['Contact']['id']), array('class' => 'btn btn-primary')); ?>
+                                <?php endif; ?>
+                            <?php endif; ?>                            
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </table>

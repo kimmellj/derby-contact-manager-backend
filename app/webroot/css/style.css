@@ -35,10 +35,10 @@
     /* shadow */
     text-shadow: 0 0 0.5em #444;
 }
-.organizations {
+td.organizations {
     width: 1%;
 }
-.organizations div {
+td.organizations div {
     overflow: hidden;
     text-align: right;
     text-overflow: ellipsis;
@@ -46,10 +46,10 @@
     width: 200px;
 }
 
-.roles {
+td.roles {
     width: 1%;
 }
-.roles div {
+td.roles div {
     overflow: hidden;
     text-align: right;
     text-overflow: ellipsis;
